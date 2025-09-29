@@ -47,6 +47,16 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Custom furniture colors
+        wood: {
+          primary: "hsl(var(--wood-primary))",
+          light: "hsl(var(--wood-light))",
+          dark: "hsl(var(--wood-dark))",
+        },
+        amber: {
+          glow: "hsl(var(--amber-glow))",
+        },
+        cream: "hsl(var(--cream))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -62,6 +72,20 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      backgroundImage: {
+        'gradient-hero': 'var(--gradient-hero)',
+        'gradient-wood': 'var(--gradient-wood)',
+        'gradient-elegant': 'var(--gradient-elegant)',
+      },
+      boxShadow: {
+        'wood': 'var(--shadow-wood)',
+        'soft': 'var(--shadow-soft)',
+        'glow': 'var(--shadow-glow)',
+      },
+      transitionTimingFunction: {
+        'smooth': 'var(--transition-smooth)',
+        'bounce': 'var(--transition-bounce)',
       },
       keyframes: {
         "accordion-down": {
