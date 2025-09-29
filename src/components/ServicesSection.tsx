@@ -1,60 +1,65 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Home, ChefHat, Bed, Users, Hammer, Palette } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Scissors, Droplets, Bed, Users, Sparkles, ArrowRight } from "lucide-react";
 
 const services = [
   {
-    icon: Home,
-    title: "Móveis para Sala",
-    description: "Estantes, racks, mesas de centro e sofás sob medida para criar o ambiente perfeito para sua família."
+    icon: Scissors,
+    title: "Cadeiras de Corte",
+    description: "Cadeiras ergonômicas e elegantes para cabelereiros. Conforto superior para longas jornadas de trabalho."
   },
   {
-    icon: ChefHat,
-    title: "Cozinhas Planejadas",
-    description: "Projetos completos de cozinha com armários, bancadas e ilhas que otimizam espaço e funcionalidade."
+    icon: Droplets,
+    title: "Lavatórios Premium",
+    description: "Lavatórios modernos com design sofisticado e funcionalidade profissional para lavagem de cabelos."
   },
   {
     icon: Bed,
-    title: "Dormitórios",
-    description: "Guarda-roupas, camas, criados-mudos e penteadeiras que transformam seu quarto em um refúgio."
+    title: "Macas para Estética",
+    description: "Macas reguláveis e confortáveis para tratamentos faciais, massagens e procedimentos estéticos."
   },
   {
     icon: Users,
-    title: "Salas de Jantar",
-    description: "Mesas, cadeiras, buffets e cristaleiras para momentos especiais em família e com amigos."
+    title: "Recepção Completa",
+    description: "Balcões de recepção, poltronas de espera e móveis que criam a primeira impressão perfeita."
   },
   {
-    icon: Hammer,
-    title: "Marcenaria Personalizada",
-    description: "Projetos únicos e personalizados para atender suas necessidades específicas e estilo de vida."
+    icon: Sparkles,
+    title: "Estações de Trabalho",
+    description: "Penteadeiras com espelhos iluminados, gavetas organizadoras e design que inspira profissionalismo."
   },
   {
-    icon: Palette,
-    title: "Design e Decoração",
-    description: "Consultoria completa em design de interiores para harmonizar todos os elementos do ambiente."
+    icon: ArrowRight,
+    title: "Projetos Completos",
+    description: "Planejamento total do seu salão: layout, móveis customizados e ambientação premium."
   }
 ];
 
 const ServicesSection = () => {
+  const scrollToContact = () => {
+    document.getElementById('orcamento')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className="py-20 bg-gradient-elegant">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Nossos Serviços
+            Móveis Premium para Salão de Beleza
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Oferecemos soluções completas em móveis sob medida para todos os ambientes da sua casa
+            Especializados em móveis profissionais que elevam a experiência dos seus clientes
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {services.map((service, index) => (
             <Card 
               key={index} 
-              className="group hover:shadow-wood transition-all duration-300 hover:-translate-y-2 border-border/50"
+              className="group hover:shadow-premium transition-all duration-300 hover:-translate-y-2 border-border/50"
             >
               <CardContent className="p-8">
-                <div className="w-16 h-16 bg-gradient-wood rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-gradient-hero rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <service.icon className="h-8 w-8 text-primary-foreground" />
                 </div>
                 
@@ -68,6 +73,18 @@ const ServicesSection = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        <div className="text-center">
+          <Button 
+            variant="premium" 
+            size="lg" 
+            onClick={scrollToContact}
+            className="group"
+          >
+            Solicitar Orçamento Personalizado
+            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+          </Button>
         </div>
       </div>
     </section>

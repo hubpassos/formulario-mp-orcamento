@@ -47,16 +47,19 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Custom furniture colors
-        wood: {
-          primary: "hsl(var(--wood-primary))",
-          light: "hsl(var(--wood-light))",
-          dark: "hsl(var(--wood-dark))",
+        // Custom beauty salon colors
+        purple: {
+          primary: "hsl(var(--purple-primary))",
+          light: "hsl(var(--purple-light))",
+          dark: "hsl(var(--purple-dark))",
+          glow: "hsl(var(--purple-glow))",
         },
-        amber: {
-          glow: "hsl(var(--amber-glow))",
+        luxury: {
+          cream: "hsl(var(--luxury-cream))",
         },
-        cream: "hsl(var(--cream))",
+        elegant: {
+          gray: "hsl(var(--elegant-gray))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -75,11 +78,11 @@ export default {
       },
       backgroundImage: {
         'gradient-hero': 'var(--gradient-hero)',
-        'gradient-wood': 'var(--gradient-wood)',
+        'gradient-premium': 'var(--gradient-premium)',
         'gradient-elegant': 'var(--gradient-elegant)',
       },
       boxShadow: {
-        'wood': 'var(--shadow-wood)',
+        'premium': 'var(--shadow-premium)',
         'soft': 'var(--shadow-soft)',
         'glow': 'var(--shadow-glow)',
       },

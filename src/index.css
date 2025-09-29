@@ -8,54 +8,55 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Furniture color palette - warm wood tones */
-    --background: 45 15% 97%;
-    --foreground: 25 25% 15%;
+    /* Premium beauty salon color palette */
+    --background: 270 10% 98%;
+    --foreground: 270 15% 15%;
 
-    --card: 45 20% 98%;
-    --card-foreground: 25 25% 15%;
+    --card: 270 15% 98%;
+    --card-foreground: 270 15% 15%;
 
-    --popover: 45 20% 98%;
-    --popover-foreground: 25 25% 15%;
+    --popover: 270 15% 98%;
+    --popover-foreground: 270 15% 15%;
 
-    /* Primary - Rich wood brown */
-    --primary: 25 45% 35%;
-    --primary-foreground: 45 20% 98%;
+    /* Primary - Premium purple */
+    --primary: 265 85% 55%;
+    --primary-foreground: 270 10% 98%;
 
-    /* Secondary - Warm amber */
-    --secondary: 45 70% 85%;
-    --secondary-foreground: 25 45% 35%;
+    /* Secondary - Light purple */
+    --secondary: 265 30% 92%;
+    --secondary-foreground: 265 85% 55%;
 
-    --muted: 45 30% 92%;
-    --muted-foreground: 25 15% 45%;
+    --muted: 270 8% 94%;
+    --muted-foreground: 270 5% 55%;
 
-    /* Accent - Golden wood */
-    --accent: 40 60% 75%;
-    --accent-foreground: 25 45% 35%;
+    /* Accent - Elegant purple */
+    --accent: 265 60% 75%;
+    --accent-foreground: 270 15% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 45 25% 88%;
-    --input: 45 25% 88%;
-    --ring: 25 45% 35%;
+    --border: 270 8% 88%;
+    --input: 270 8% 88%;
+    --ring: 265 85% 55%;
 
-    /* Custom furniture design tokens */
-    --wood-primary: 25 45% 35%;
-    --wood-light: 35 40% 70%;
-    --wood-dark: 20 50% 25%;
-    --amber-glow: 45 70% 75%;
-    --cream: 45 20% 95%;
+    /* Custom beauty salon design tokens */
+    --purple-primary: 265 85% 55%;
+    --purple-light: 265 30% 85%;
+    --purple-dark: 265 95% 45%;
+    --purple-glow: 265 70% 70%;
+    --luxury-cream: 270 10% 98%;
+    --elegant-gray: 270 5% 90%;
     
-    /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(45 70% 85%), hsl(40 60% 75%));
-    --gradient-wood: linear-gradient(180deg, hsl(35 40% 70%), hsl(25 45% 35%));
-    --gradient-elegant: linear-gradient(135deg, hsl(45 20% 98%), hsl(45 30% 92%));
+    /* Premium gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(265 85% 55%), hsl(280 80% 60%));
+    --gradient-premium: linear-gradient(180deg, hsl(265 30% 92%), hsl(270 10% 98%));
+    --gradient-elegant: linear-gradient(135deg, hsl(270 10% 98%), hsl(270 8% 94%));
     
-    /* Shadows */
-    --shadow-wood: 0 10px 30px -10px hsl(25 45% 35% / 0.3);
-    --shadow-soft: 0 4px 20px -4px hsl(25 25% 15% / 0.1);
-    --shadow-glow: 0 0 40px hsl(45 70% 75% / 0.4);
+    /* Luxury shadows */
+    --shadow-premium: 0 15px 40px -10px hsl(265 85% 55% / 0.25);
+    --shadow-soft: 0 4px 20px -4px hsl(270 15% 15% / 0.08);
+    --shadow-glow: 0 0 50px hsl(265 70% 70% / 0.3);
     
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -81,49 +82,50 @@ All colors MUST be HSL.
   }
 
   .dark {
-    /* Dark mode - Deep wood tones */
-    --background: 20 20% 8%;
-    --foreground: 45 20% 95%;
+    /* Dark mode - Premium purple tones */
+    --background: 270 15% 8%;
+    --foreground: 270 10% 95%;
 
-    --card: 20 25% 12%;
-    --card-foreground: 45 20% 95%;
+    --card: 270 20% 12%;
+    --card-foreground: 270 10% 95%;
 
-    --popover: 20 25% 12%;
-    --popover-foreground: 45 20% 95%;
+    --popover: 270 20% 12%;
+    --popover-foreground: 270 10% 95%;
 
-    --primary: 45 70% 75%;
-    --primary-foreground: 20 25% 12%;
+    --primary: 265 70% 65%;
+    --primary-foreground: 270 15% 8%;
 
-    --secondary: 25 30% 20%;
-    --secondary-foreground: 45 20% 95%;
+    --secondary: 265 25% 18%;
+    --secondary-foreground: 270 10% 95%;
 
-    --muted: 25 20% 18%;
-    --muted-foreground: 45 15% 65%;
+    --muted: 270 15% 15%;
+    --muted-foreground: 270 8% 65%;
 
-    --accent: 40 50% 45%;
-    --accent-foreground: 45 20% 95%;
+    --accent: 265 50% 45%;
+    --accent-foreground: 270 10% 95%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 25 20% 25%;
-    --input: 25 20% 25%;
-    --ring: 45 70% 75%;
+    --border: 270 15% 20%;
+    --input: 270 15% 20%;
+    --ring: 265 70% 65%;
 
-    /* Dark mode custom tokens */
-    --wood-primary: 45 70% 75%;
-    --wood-light: 40 50% 55%;
-    --wood-dark: 15 30% 15%;
-    --amber-glow: 45 80% 65%;
-    --cream: 20 15% 20%;
+    /* Dark mode premium tokens */
+    --purple-primary: 265 70% 65%;
+    --purple-light: 265 40% 50%;
+    --purple-dark: 265 80% 35%;
+    --purple-glow: 265 60% 60%;
+    --luxury-cream: 270 15% 8%;
+    --elegant-gray: 270 10% 20%;
     
-    --gradient-hero: linear-gradient(135deg, hsl(25 30% 20%), hsl(20 25% 12%));
-    --gradient-wood: linear-gradient(180deg, hsl(40 50% 45%), hsl(25 30% 20%));
-    --gradient-elegant: linear-gradient(135deg, hsl(20 25% 12%), hsl(25 20% 18%));
+    --gradient-hero: linear-gradient(135deg, hsl(265 40% 25%), hsl(270 15% 8%));
+    --gradient-premium: linear-gradient(180deg, hsl(265 25% 18%), hsl(270 15% 8%));
+    --gradient-elegant: linear-gradient(135deg, hsl(270 15% 8%), hsl(270 15% 15%));
     
-    --shadow-wood: 0 10px 30px -10px hsl(0 0% 0% / 0.5);
+    --shadow-premium: 0 15px 40px -10px hsl(0 0% 0% / 0.5);
     --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
-    --shadow-glow: 0 0 40px hsl(45 70% 75% / 0.2);
+    --shadow-glow: 0 0 50px hsl(265 60% 60% / 0.2);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;

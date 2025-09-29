@@ -14,20 +14,20 @@ const HeroSection = () => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroImage})` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-wood-dark/90 via-wood-primary/70 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-dark/90 via-purple-primary/70 to-transparent"></div>
       </div>
       
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 py-20">
         <div className="max-w-3xl">
           <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
-            Móveis Sob
-            <span className="block text-amber-glow">Medida</span>
+            Móveis Premium
+            <span className="block text-purple-glow">para Salão de Beleza</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 leading-relaxed">
-            Transformamos sua casa em um lar único com móveis personalizados. 
-            Design exclusivo, qualidade premium e acabamento impecável.
+            Transforme seu salão com móveis que unem conforto, design e durabilidade. 
+            Cada detalhe é pensado para valorizar sua marca e encantar seus clientes.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">

@@ -21,10 +21,10 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div 
-            className="font-bold text-xl text-primary cursor-pointer hover:text-wood-light transition-colors"
+            className="font-bold text-xl text-primary cursor-pointer hover:text-purple-light transition-colors"
             onClick={scrollToTop}
           >
-            Móveis Premium
+            Móveis Premium Salão
           </div>
 
           {/* Desktop Menu */}
@@ -57,7 +57,7 @@ const Navbar = () => {
             </button>
             <Button 
               onClick={() => scrollToSection('orcamento')}
-              variant="hero"
+              variant="premium"
               size="sm"
             >
               <Calculator className="h-4 w-4" />
@@ -106,7 +106,7 @@ const Navbar = () => {
               </button>
               <Button 
                 onClick={() => scrollToSection('orcamento')}
-                variant="hero"
+                variant="premium"
                 size="sm"
                 className="w-full"
               >

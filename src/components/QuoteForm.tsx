@@ -116,13 +116,13 @@ const QuoteForm = () => {
                         <SelectValue placeholder="Selecione o serviço" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="cozinha">Cozinha Planejada</SelectItem>
-                        <SelectItem value="dormitorio">Dormitório</SelectItem>
-                        <SelectItem value="sala">Móveis para Sala</SelectItem>
-                        <SelectItem value="jantar">Sala de Jantar</SelectItem>
-                        <SelectItem value="escritorio">Home Office</SelectItem>
-                        <SelectItem value="personalizado">Projeto Personalizado</SelectItem>
-                        <SelectItem value="reforma">Reforma Completa</SelectItem>
+                        <SelectItem value="cadeiras">Cadeiras de Corte/Escova</SelectItem>
+                        <SelectItem value="lavatorios">Lavatórios Profissionais</SelectItem>
+                        <SelectItem value="macas">Macas para Estética</SelectItem>
+                        <SelectItem value="recepcao">Móveis de Recepção</SelectItem>
+                        <SelectItem value="estacoes">Estações de Trabalho</SelectItem>
+                        <SelectItem value="completo">Salão Completo</SelectItem>
+                        <SelectItem value="reforma">Reforma/Modernização</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -135,11 +135,11 @@ const QuoteForm = () => {
                       <SelectValue placeholder="Selecione a faixa de orçamento" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="5k-10k">R$ 5.000 - R$ 10.000</SelectItem>
-                      <SelectItem value="10k-20k">R$ 10.000 - R$ 20.000</SelectItem>
-                      <SelectItem value="20k-50k">R$ 20.000 - R$ 50.000</SelectItem>
+                      <SelectItem value="10k-25k">R$ 10.000 - R$ 25.000</SelectItem>
+                      <SelectItem value="25k-50k">R$ 25.000 - R$ 50.000</SelectItem>
                       <SelectItem value="50k-100k">R$ 50.000 - R$ 100.000</SelectItem>
-                      <SelectItem value="100k+">Acima de R$ 100.000</SelectItem>
+                      <SelectItem value="100k-200k">R$ 100.000 - R$ 200.000</SelectItem>
+                      <SelectItem value="200k+">Acima de R$ 200.000</SelectItem>
                       <SelectItem value="conversar">Prefiro conversar</SelectItem>
                     </SelectContent>
                   </Select>
@@ -151,7 +151,7 @@ const QuoteForm = () => {
                     id="description"
                     value={formData.description}
                     onChange={(e) => handleChange("description", e.target.value)}
-                    placeholder="Descreva seu projeto, medidas do ambiente, estilo desejado, necessidades específicas..."
+                    placeholder="Descreva seu salão: quantas cadeiras precisa, tipo de serviços oferecidos, metragem do espaço, estilo desejado..."
                     rows={5}
                     required
                     className="border-input focus:ring-ring resize-none"
