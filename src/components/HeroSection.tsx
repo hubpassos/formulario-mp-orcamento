@@ -20,14 +20,14 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 py-20">
         <div className="max-w-3xl">
-          <h1 className="text-5xl md:text-7xl font-elegant font-semibold text-primary-foreground mb-6 leading-tight">
+          <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
             Móveis Passos
-            <span className="block text-purple-glow text-4xl md:text-5xl mt-2">Móveis para Salão de Beleza</span>
+            <span className="block text-purple-glow">Móveis para Salão de Beleza</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 leading-relaxed">
-            Transformando espaços com <span className="font-semibold text-purple-glow">móveis premium</span> para salões de beleza. 
-            <span className="font-semibold">Conforto, design e durabilidade</span> que valorizam sua marca.
+            Transforme seu espaço com móveis que unem conforto, design e durabilidade. 
+            Na Móveis Passos, cada detalhe é pensado para valorizar sua marca e encantar seus clientes.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">
