@@ -21,7 +21,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div 
-            className="font-bold text-xl text-primary cursor-pointer hover:text-purple-light transition-colors"
+            className="font-elegant font-semibold text-2xl text-primary cursor-pointer hover:text-purple-light transition-colors"
             onClick={scrollToTop}
           >
             Móveis Passos
