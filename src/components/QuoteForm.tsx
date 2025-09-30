@@ -11,11 +11,12 @@ import { Send, Calculator } from "lucide-react";
 const QuoteForm = () => {
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
     phone: "",
-    service: "",
-    description: "",
-    budget: ""
+    procedures: "",
+    projectDetails: "",
+    budget: "",
+    timeline: "",
+    location: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
@@ -34,11 +35,12 @@ const QuoteForm = () => {
 
     setFormData({
       name: "",
-      email: "",
       phone: "",
-      service: "",
-      description: "",
-      budget: ""
+      procedures: "",
+      projectDetails: "",
+      budget: "",
+      timeline: "",
+      location: ""
     });
     setIsSubmitting(false);
   };
@@ -54,10 +56,10 @@ const QuoteForm = () => {
           <div className="text-center mb-12">
             <Calculator className="h-16 w-16 text-primary mx-auto mb-6" />
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Solicite seu Orçamento
+              Solicite seu Orçamento Exclusivo
             </h2>
             <p className="text-xl text-muted-foreground">
-              Conte-nos sobre seu projeto e receba uma proposta personalizada sem compromisso
+              Transforme seu espaço com móveis que unem conforto, design e durabilidade. Na Móveis Passos, cada detalhe é pensado para valorizar sua marca e encantar seus clientes.
             </p>
           </div>
 
@@ -84,20 +86,6 @@ const QuoteForm = () => {
                   </div>
                   
                   <div className="space-y-2">
-                    <Label htmlFor="email">E-mail</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => handleChange("email", e.target.value)}
-                      required
-                      className="border-input focus:ring-ring"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
                     <Label htmlFor="phone">Telefone/WhatsApp</Label>
                     <Input
                       id="phone"
@@ -108,54 +96,75 @@ const QuoteForm = () => {
                       className="border-input focus:ring-ring"
                     />
                   </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="service">Tipo de Serviço</Label>
-                    <Select value={formData.service} onValueChange={(value) => handleChange("service", value)}>
-                      <SelectTrigger className="border-input focus:ring-ring">
-                        <SelectValue placeholder="Selecione o serviço" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="cadeiras">Cadeiras de Corte/Escova</SelectItem>
-                        <SelectItem value="lavatorios">Lavatórios Profissionais</SelectItem>
-                        <SelectItem value="macas">Macas para Estética</SelectItem>
-                        <SelectItem value="recepcao">Móveis de Recepção</SelectItem>
-                        <SelectItem value="estacoes">Estações de Trabalho</SelectItem>
-                        <SelectItem value="completo">Salão Completo</SelectItem>
-                        <SelectItem value="reforma">Reforma/Modernização</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="budget">Orçamento Estimado</Label>
-                  <Select value={formData.budget} onValueChange={(value) => handleChange("budget", value)}>
-                    <SelectTrigger className="border-input focus:ring-ring">
-                      <SelectValue placeholder="Selecione a faixa de orçamento" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="10k-25k">R$ 10.000 - R$ 25.000</SelectItem>
-                      <SelectItem value="25k-50k">R$ 25.000 - R$ 50.000</SelectItem>
-                      <SelectItem value="50k-100k">R$ 50.000 - R$ 100.000</SelectItem>
-                      <SelectItem value="100k-200k">R$ 100.000 - R$ 200.000</SelectItem>
-                      <SelectItem value="200k+">Acima de R$ 200.000</SelectItem>
-                      <SelectItem value="conversar">Prefiro conversar</SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <Label htmlFor="location">Cidade/Estado</Label>
+                  <Input
+                    id="location"
+                    type="text"
+                    value={formData.location}
+                    onChange={(e) => handleChange("location", e.target.value)}
+                    placeholder="Ex: São Paulo - SP"
+                    required
+                    className="border-input focus:ring-ring"
+                  />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="description">Descrição do Projeto</Label>
+                  <Label htmlFor="procedures">Procedimentos do Salão</Label>
                   <Textarea
-                    id="description"
-                    value={formData.description}
-                    onChange={(e) => handleChange("description", e.target.value)}
-                    placeholder="Descreva seu salão: quantas cadeiras precisa, tipo de serviços oferecidos, metragem do espaço, estilo desejado..."
-                    rows={5}
+                    id="procedures"
+                    value={formData.procedures}
+                    onChange={(e) => handleChange("procedures", e.target.value)}
+                    placeholder="Descreva os procedimentos que você oferece no seu salão (ex: corte, escova, coloração, manicure, etc.)"
+                    rows={3}
                     required
                     className="border-input focus:ring-ring resize-none"
                   />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="projectDetails">O que você deseja no orçamento?</Label>
+                  <Textarea
+                    id="projectDetails"
+                    value={formData.projectDetails}
+                    onChange={(e) => handleChange("projectDetails", e.target.value)}
+                    placeholder="Ex: 3 cadeiras para cabeleireiro, 1 para maquiagem, 2 lavatórios..."
+                    rows={4}
+                    required
+                    className="border-input focus:ring-ring resize-none"
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="budget">Orçamento Estimado</Label>
+                    <Select value={formData.budget} onValueChange={(value) => handleChange("budget", value)}>
+                      <SelectTrigger className="border-input focus:ring-ring">
+                        <SelectValue placeholder="Selecione a faixa de orçamento" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="ate-5k">Até R$ 5.000</SelectItem>
+                        <SelectItem value="5k-10k">De R$ 5.000 a R$ 10.000</SelectItem>
+                        <SelectItem value="acima-10k">Acima de R$ 10.000</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="timeline">Em qual prazo você pretende realizar essa compra?</Label>
+                    <Select value={formData.timeline} onValueChange={(value) => handleChange("timeline", value)}>
+                      <SelectTrigger className="border-input focus:ring-ring">
+                        <SelectValue placeholder="Selecione o prazo" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="imediato">Imediato</SelectItem>
+                        <SelectItem value="30-dias">Nos próximos 30 dias</SelectItem>
+                        <SelectItem value="mais-2-meses">Mais de 2 meses</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
                 </div>
 
                 <Button 

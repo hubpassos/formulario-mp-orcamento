@@ -1,35 +1,28 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import salonChairImage from "@/assets/salon-chair-premium.jpg";
-import washbasinImage from "@/assets/salon-washbasin.jpg";
-import treatmentBedImage from "@/assets/salon-treatment-bed.jpg";
-import receptionImage from "@/assets/salon-reception.jpg";
+import cadeiraNature from "@/assets/cadeira-nature.jpg";
+import cadeiraLisboa from "@/assets/cadeira-lisboa.jpg";
+import lavatorioVogue from "@/assets/lavatorio-vogue.jpg";
 import { ArrowRight } from "lucide-react";
 
 const projects = [
   {
-    title: "Cadeira Premium",
-    description: "Cadeira ergonômica para corte e escova com design sofisticado e máximo conforto",
-    image: salonChairImage,
+    title: "Cadeira Nature",
+    description: "Conforto e ergonomia que elevam o nível de cada atendimento.",
+    image: cadeiraNature,
     category: "Cadeiras"
   },
   {
-    title: "Lavatório Moderno",
-    description: "Lavatório profissional com design elegante e funcionalidade superior",
-    image: washbasinImage,
+    title: "Cadeira Lisboa",
+    description: "Elegância e funcionalidade que transformam qualquer ambiente.",
+    image: cadeiraLisboa,
+    category: "Cadeiras"
+  },
+  {
+    title: "Lavatório Vogue",
+    description: "Modernidade e praticidade que encantam a cada lavagem.",
+    image: lavatorioVogue,
     category: "Lavatórios"
-  },
-  {
-    title: "Maca para Estética",
-    description: "Maca regulável e confortável para tratamentos faciais e corporais",
-    image: treatmentBedImage,
-    category: "Macas"
-  },
-  {
-    title: "Recepção Premium",
-    description: "Ambiente de recepção completo com móveis que transmitem sofisticação",
-    image: receptionImage,
-    category: "Recepção"
   }
 ];
 
@@ -43,14 +36,14 @@ const GallerySection = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Portfólio Premium
+            Nossos Produtos
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Móveis que transformam salões em espaços de excelência e sofisticação
+            Móveis que transformam espaços e elevam experiências
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {projects.map((project, index) => (
             <Card 
               key={index} 
@@ -84,7 +77,7 @@ const GallerySection = () => {
         
         <div className="text-center space-y-6">
           <p className="text-lg text-muted-foreground">
-            + de <span className="font-bold text-primary">500 salões</span> equipados com nossos móveis premium
+            Mais de <span className="font-bold text-primary">10 Mil Espaços Transformados</span>
           </p>
           <Button 
             variant="premium" 
@@ -92,7 +85,7 @@ const GallerySection = () => {
             onClick={scrollToContact}
             className="group"
           >
-            Ver Seu Projeto Personalizado
+            Solicitar Orçamento
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>

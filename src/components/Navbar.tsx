@@ -24,7 +24,7 @@ const Navbar = () => {
             className="font-bold text-xl text-primary cursor-pointer hover:text-purple-light transition-colors"
             onClick={scrollToTop}
           >
-            Móveis Premium Salão
+            Móveis Passos
           </div>
 
           {/* Desktop Menu */}

@@ -1,83 +1,74 @@
-import { Heart, MapPin, Phone, Mail, Clock } from "lucide-react";
+import { Heart, Clock, Instagram, MessageCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const Footer = () => {
+  const openWhatsApp = () => {
+    const message = encodeURIComponent("Olá! Vim do formulário e gostaria de um orçamento para móveis de salão de beleza.");
+    window.open(`https://wa.me/5587991342364?text=${message}`, '_blank');
+  };
+
   return (
-    <footer className="bg-wood-dark text-primary-foreground py-12">
+    <footer className="bg-primary text-primary-foreground py-12">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="font-bold text-2xl mb-4 text-amber-glow">Móveis Premium</h3>
+            <h3 className="font-bold text-2xl mb-4 text-purple-glow">Móveis Passos</h3>
             <p className="text-primary-foreground/80 mb-4 leading-relaxed">
-              Há mais de 15 anos criando móveis únicos e personalizados para transformar 
-              sua casa em um lar especial. Qualidade, design e atendimento diferenciado.
+              Transformando espaços com móveis premium para salões de beleza. 
+              Conforto, design e durabilidade que valorizam sua marca.
             </p>
             <div className="flex items-center gap-2 text-sm text-primary-foreground/70">
-              <Heart className="h-4 w-4 text-amber-glow" />
-              Feito com amor em São Paulo
+              <Heart className="h-4 w-4 text-purple-glow" />
+              Móveis para Salão de Beleza
             </div>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-semibold text-lg mb-4 text-amber-glow">Contato</h4>
+            <h4 className="font-semibold text-lg mb-4 text-purple-glow">Horário</h4>
             <div className="space-y-3 text-primary-foreground/80">
-              <div className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 text-amber-glow mt-0.5 flex-shrink-0" />
-                <div>
-                  <p>Rua dos Móveis, 123</p>
-                  <p>São Paulo - SP, CEP: 01234-567</p>
-                </div>
-              </div>
-              
               <div className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-amber-glow flex-shrink-0" />
+                <Clock className="h-5 w-5 text-purple-glow flex-shrink-0" />
                 <div>
-                  <p>(11) 99999-9999</p>
-                  <p>(11) 3333-4444</p>
-                </div>
-              </div>
-              
-              <div className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-amber-glow flex-shrink-0" />
-                <div>
-                  <p>contato@moveis.com.br</p>
-                  <p>orcamento@moveis.com.br</p>
+                  <p>Seg a Sex: 8:30h às 17:30h</p>
+                  <p>Sáb: 9h às 13h</p>
+                  <p>Dom: Fechado</p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Hours & Services */}
+          {/* Social & Contact */}
           <div>
-            <h4 className="font-semibold text-lg mb-4 text-amber-glow">Horário de Funcionamento</h4>
-            <div className="space-y-2 text-primary-foreground/80 mb-6">
-              <div className="flex items-center gap-3">
-                <Clock className="h-5 w-5 text-amber-glow flex-shrink-0" />
-                <div>
-                  <p>Segunda a Sexta: 8h às 18h</p>
-                  <p>Sábado: 8h às 12h</p>
-                  <p>Domingo: Fechado</p>
-                </div>
-              </div>
-            </div>
-            
-            <div>
-              <h5 className="font-medium mb-2 text-amber-glow">Nossos Serviços</h5>
-              <ul className="text-sm text-primary-foreground/70 space-y-1">
-                <li>• Móveis sob medida</li>
-                <li>• Cozinhas planejadas</li>
-                <li>• Dormitórios completos</li>
-                <li>• Design de interiores</li>
-                <li>• Marcenaria personalizada</li>
-              </ul>
+            <h4 className="font-semibold text-lg mb-4 text-purple-glow">Conecte-se Conosco</h4>
+            <div className="space-y-4">
+              <a 
+                href="https://www.instagram.com/moveispassos_/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+              >
+                <Instagram className="h-5 w-5 text-purple-glow flex-shrink-0" />
+                <span>@moveispassos_</span>
+              </a>
+              
+              <Button 
+                onClick={openWhatsApp}
+                variant="secondary"
+                size="sm"
+                className="w-full group"
+              >
+                <MessageCircle className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
+                Falar no WhatsApp
+              </Button>
             </div>
           </div>
         </div>
         
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center">
           <p className="text-primary-foreground/60 text-sm">
-            © 2024 Móveis Premium. Todos os direitos reservados.
+            © 2024 Móveis Passos. Todos os direitos reservados.
           </p>
         </div>
       </div>

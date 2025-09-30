@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Phone } from "lucide-react";
-import heroImage from "@/assets/hero-furniture.jpg";
+import { ArrowRight } from "lucide-react";
+import heroImage from "@/assets/hero-salon.jpg";
 
 const HeroSection = () => {
   const scrollToContact = () => {
@@ -21,13 +21,13 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-6 py-20">
         <div className="max-w-3xl">
           <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
-            Móveis Premium
-            <span className="block text-purple-glow">para Salão de Beleza</span>
+            Móveis Passos
+            <span className="block text-purple-glow">Móveis para Salão de Beleza</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 leading-relaxed">
-            Transforme seu salão com móveis que unem conforto, design e durabilidade. 
-            Cada detalhe é pensado para valorizar sua marca e encantar seus clientes.
+            Transforme seu espaço com móveis que unem conforto, design e durabilidade. 
+            Na Móveis Passos, cada detalhe é pensado para valorizar sua marca e encantar seus clientes.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">
@@ -39,15 +39,6 @@ const HeroSection = () => {
             >
               Solicitar Orçamento
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
-            >
-              <Phone className="mr-2 h-5 w-5" />
-              (11) 99999-9999
             </Button>
           </div>
         </div>
