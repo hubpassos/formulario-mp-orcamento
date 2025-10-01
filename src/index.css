@@ -74,17 +74,19 @@ All colors MUST be HSL.
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  @keyframes pulse-glow {
+  @keyframes subtle-glow {
     0%, 100% {
-      box-shadow: 0 0 20px hsl(267 36% 55% / 0.4);
+      box-shadow: 0 8px 30px hsl(267 36% 55% / 0.2);
+      transform: translateY(0);
     }
     50% {
-      box-shadow: 0 0 40px hsl(267 36% 55% / 0.8);
+      box-shadow: 0 12px 40px hsl(267 36% 55% / 0.35);
+      transform: translateY(-2px);
     }
   }
 
   .animate-pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite;
+    animation: subtle-glow 3s ease-in-out infinite;
   }
 
   .dark {

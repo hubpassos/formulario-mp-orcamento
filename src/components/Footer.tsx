@@ -4,16 +4,7 @@ const Footer = () => {
   return (
     <footer className="bg-primary text-primary-foreground py-12">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Company Info */}
-          <div>
-            <h3 className="font-bold text-2xl mb-4 text-white">Móveis Passos</h3>
-            <p className="text-white/80 mb-4 leading-relaxed">
-              Transformando espaços com móveis premium para salões de beleza. 
-              Conforto, design e durabilidade que valorizam sua marca.
-            </p>
-          </div>
-
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Contact Info */}
           <div>
             <h4 className="font-semibold text-lg mb-4 text-white">Horário</h4>

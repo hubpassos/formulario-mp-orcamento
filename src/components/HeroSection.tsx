@@ -22,7 +22,7 @@ const HeroSection = () => {
         <div className="max-w-3xl">
           <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
             Móveis Passos
-            <span className="block text-purple-glow">Móveis para Salão de Beleza</span>
+            <span className="block text-2xl md:text-3xl font-normal text-primary-foreground/80 mt-2">Móveis para Salão de Beleza</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 leading-relaxed">
