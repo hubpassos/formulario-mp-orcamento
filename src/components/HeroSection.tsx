@@ -26,8 +26,7 @@ const HeroSection = () => {
           </h1>
           
           <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 leading-relaxed">
-            Transforme seu espaço com móveis que unem conforto, design e durabilidade. 
-            Na Móveis Passos, cada detalhe é pensado para valorizar sua marca e encantar seus clientes.
+            Transformando espaços com <span className="font-semibold">móveis premium</span> para salões de beleza. <span className="font-semibold">Conforto, design e durabilidade</span> que valorizam sua marca.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">
@@ -35,9 +34,9 @@ const HeroSection = () => {
               variant="hero" 
               size="lg" 
               onClick={scrollToContact}
-              className="group"
+              className="group animate-pulse-glow"
             >
-              Solicitar Orçamento
+              Solicitar Orçamento Personalizado
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>

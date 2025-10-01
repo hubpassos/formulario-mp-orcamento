@@ -56,10 +56,11 @@ const QuoteForm = () => {
           <div className="text-center mb-12">
             <Calculator className="h-16 w-16 text-primary mx-auto mb-6" />
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Solicite seu Orçamento Exclusivo
+              Móveis Passos
+              <span className="block text-3xl md:text-4xl text-primary mt-2">Móveis para Salão de Beleza</span>
             </h2>
             <p className="text-xl text-muted-foreground">
-              Transforme seu espaço com móveis que unem conforto, design e durabilidade. Na Móveis Passos, cada detalhe é pensado para valorizar sua marca e encantar seus clientes.
+              Transforme seu espaço com móveis que unem conforto, design e durabilidade.
             </p>
           </div>
 

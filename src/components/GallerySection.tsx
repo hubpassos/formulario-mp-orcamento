@@ -76,8 +76,8 @@ const GallerySection = () => {
         </div>
         
         <div className="text-center space-y-6">
-          <p className="text-lg text-muted-foreground">
-            Mais de <span className="font-bold text-primary">10 Mil Espaços Transformados</span>
+          <p className="text-lg text-muted-foreground animate-fade-in">
+            Mais de <span className="font-bold bg-gradient-to-r from-purple-dark to-purple-light bg-clip-text text-transparent">10 Mil Espaços Transformados</span>
           </p>
           <Button 
             variant="premium" 
