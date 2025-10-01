@@ -22,21 +22,21 @@ const HeroSection = () => {
         <div className="max-w-3xl">
           <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
             Móveis Passos
-            <span className="block text-2xl md:text-3xl font-normal text-primary-foreground/80 mt-2">Móveis para Salão de Beleza</span>
+            <span className="block text-lg md:text-xl font-light text-primary-foreground/70 mt-2">Móveis para Salão de Beleza</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 leading-relaxed">
-            Transformando espaços com <span className="font-semibold">móveis premium</span> para salões de beleza. <span className="font-semibold">Conforto, design e durabilidade</span> que valorizam sua marca.
+            Transformando espaços com <span className="font-semibold">móveis premium</span> para salões de beleza.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">
             <Button 
-              variant="hero" 
+              variant="outline" 
               size="lg" 
               onClick={scrollToContact}
-              className="group animate-pulse-glow"
+              className="group bg-white text-primary hover:bg-white/90 border-white"
             >
-              Solicitar Orçamento Personalizado
+              Solicitar Orçamento
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
