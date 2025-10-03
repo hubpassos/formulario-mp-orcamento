@@ -47,10 +47,10 @@ const ServicesSection = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Móveis Premium para Salão de Beleza
+            Móveis de Alto Padrão para Salão de Beleza
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Especializados em móveis profissionais que elevam a experiência dos seus clientes
+            Transforme seu espaço com móveis que unem conforto, design e durabilidade.
           </p>
         </div>
         
@@ -114,7 +114,7 @@ const ServicesSection = () => {
             onClick={scrollToContact}
             className="group"
           >
-            Solicitar Orçamento Personalizado
+            Solicitar Orçamento
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>

@@ -22,11 +22,10 @@ const HeroSection = () => {
         <div className="max-w-3xl">
           <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
             Móveis Passos
-            <span className="block text-lg md:text-xl font-light text-primary-foreground/70 mt-2">Móveis para Salão de Beleza</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 leading-relaxed">
-            Transformando espaços com <span className="font-semibold">móveis premium</span> para salões de beleza.
+            Transformando salões de beleza com <span className="font-semibold">móveis de alto padrão</span>.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">
