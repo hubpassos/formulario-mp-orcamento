@@ -80,7 +80,7 @@ const ServicesSection = () => {
 
         {/* Mobile Carousel */}
         <div className="md:hidden mb-12">
-          <Carousel className="w-full max-w-sm mx-auto">
+          <Carousel className="w-full max-w-sm mx-auto" opts={{ loop: true }}>
             <CarouselContent>
               {services.map((service, index) => (
                 <CarouselItem key={index}>
@@ -102,8 +102,8 @@ const ServicesSection = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            <CarouselPrevious className="h-12 w-12 -left-6 bg-primary text-primary-foreground shadow-lg animate-pulse hover:animate-none border-2" />
+            <CarouselNext className="h-12 w-12 -right-6 bg-primary text-primary-foreground shadow-lg animate-pulse hover:animate-none border-2" />
           </Carousel>
         </div>
 

@@ -1,14 +1,27 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Mouse, Hand } from "lucide-react";
 import heroImage from "@/assets/hero-salon.jpg";
+import { useEffect, useState } from "react";
 
 const HeroSection = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const scrollToContact = () => {
     document.getElementById('orcamento')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative h-[85vh] md:min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background with overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -18,7 +31,7 @@ const HeroSection = () => {
       </div>
       
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 py-20">
+      <div className="relative z-10 container mx-auto px-6 py-12 md:py-20">
         <div className="max-w-3xl">
           <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
             Móveis Passos
@@ -44,9 +57,11 @@ const HeroSection = () => {
       
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-primary-foreground/50 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-primary-foreground/70 rounded-full mt-2 animate-pulse"></div>
-        </div>
+        {isMobile ? (
+          <Hand className="h-8 w-8 text-primary-foreground/70" />
+        ) : (
+          <Mouse className="h-8 w-8 text-primary-foreground/70" />
+        )}
       </div>
     </section>
   );
