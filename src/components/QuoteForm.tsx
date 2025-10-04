@@ -7,6 +7,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Send, Calculator, CheckCircle2 } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 const QuoteForm = () => {
   const [formData, setFormData] = useState({
@@ -59,35 +61,41 @@ const QuoteForm = () => {
     setShowConfirmDialog(false);
     setIsSubmitting(true);
 
-    // Generate unique ID and save to localStorage
-    const quoteId = `quote_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-    const quoteData = {
-      id: quoteId,
-      ...formData,
-      createdAt: new Date().toISOString()
-    };
-    
-    // Get existing quotes or initialize empty array
-    const existingQuotes = JSON.parse(localStorage.getItem('quoteRequests') || '[]');
-    existingQuotes.push(quoteData);
-    localStorage.setItem('quoteRequests', JSON.stringify(existingQuotes));
+    try {
+      const { error } = await (supabase as any)
+        .from('quote_requests')
+        .insert([
+          {
+            name: formData.name,
+            phone: formData.phone,
+            location: formData.location,
+            procedures: formData.procedures,
+            project_details: formData.projectDetails,
+            budget: formData.budget,
+            timeline: formData.timeline,
+          }
+        ]);
 
-    // Simulate submission delay
-    await new Promise(resolve => setTimeout(resolve, 1500));
+      if (error) throw error;
 
-    setIsSubmitting(false);
-    setShowSuccessDialog(true);
+      setShowSuccessDialog(true);
 
-    // Reset form
-    setFormData({
-      name: "",
-      phone: "",
-      procedures: "",
-      projectDetails: "",
-      budget: "",
-      timeline: "",
-      location: ""
-    });
+      // Reset form
+      setFormData({
+        name: "",
+        phone: "",
+        procedures: "",
+        projectDetails: "",
+        budget: "",
+        timeline: "",
+        location: ""
+      });
+    } catch (error) {
+      console.error('Error submitting quote:', error);
+      toast.error("Erro ao enviar orçamento. Por favor, tente novamente.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (field: string, value: string) => {
