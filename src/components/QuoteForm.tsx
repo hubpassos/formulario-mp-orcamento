@@ -9,6 +9,34 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { Send, Calculator, CheckCircle2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import { z } from "zod";
+
+// Comprehensive input validation schema
+const quoteFormSchema = z.object({
+  name: z.string()
+    .trim()
+    .min(1, "Nome é obrigatório")
+    .max(100, "Nome deve ter no máximo 100 caracteres")
+    .regex(/^[a-zA-ZÀ-ÿ\s]+$/, "Nome deve conter apenas letras"),
+  phone: z.string()
+    .trim()
+    .regex(/^\d{11}$/, "WhatsApp deve ter 11 dígitos")
+    .refine((val) => val[2] === '9', "O número deve começar com 9 após o DDD"),
+  location: z.string()
+    .trim()
+    .min(1, "Cidade/Estado é obrigatório")
+    .max(200, "Localização deve ter no máximo 200 caracteres"),
+  procedures: z.string()
+    .trim()
+    .min(1, "Procedimentos são obrigatórios")
+    .max(1000, "Procedimentos devem ter no máximo 1000 caracteres"),
+  projectDetails: z.string()
+    .trim()
+    .min(1, "Detalhes do projeto são obrigatórios")
+    .max(2000, "Detalhes devem ter no máximo 2000 caracteres"),
+  budget: z.string().min(1, "Orçamento é obrigatório"),
+  timeline: z.string().min(1, "Prazo é obrigatório"),
+});
 
 const QuoteForm = () => {
   const [formData, setFormData] = useState({
@@ -53,8 +81,27 @@ const QuoteForm = () => {
       return;
     }
     
-    // Show confirmation dialog
-    setShowConfirmDialog(true);
+    // Comprehensive validation using Zod
+    try {
+      // Clean phone number for validation
+      const cleanedPhone = formData.phone.replace(/\D/g, '');
+      const validationData = {
+        ...formData,
+        phone: cleanedPhone
+      };
+      
+      quoteFormSchema.parse(validationData);
+      
+      // Show confirmation dialog if validation passes
+      setShowConfirmDialog(true);
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        const firstError = error.errors[0];
+        toast.error(firstError.message);
+      } else {
+        toast.error("Erro na validação do formulário");
+      }
+    }
   };
 
   const confirmSubmit = async () => {
@@ -62,19 +109,23 @@ const QuoteForm = () => {
     setIsSubmitting(true);
 
     try {
+      // Clean and validate data before submission
+      const cleanedPhone = formData.phone.replace(/\D/g, '');
+      
+      // Sanitize inputs (trim and limit length)
+      const sanitizedData = {
+        name: formData.name.trim().slice(0, 100),
+        phone: cleanedPhone,
+        location: formData.location.trim().slice(0, 200),
+        procedures: formData.procedures.trim().slice(0, 1000),
+        project_details: formData.projectDetails.trim().slice(0, 2000),
+        budget: formData.budget,
+        timeline: formData.timeline,
+      };
+
       const { error } = await (supabase as any)
         .from('quote_requests')
-        .insert([
-          {
-            name: formData.name,
-            phone: formData.phone,
-            location: formData.location,
-            procedures: formData.procedures,
-            project_details: formData.projectDetails,
-            budget: formData.budget,
-            timeline: formData.timeline,
-          }
-        ]);
+        .insert([sanitizedData]);
 
       if (error) throw error;
 
@@ -91,7 +142,6 @@ const QuoteForm = () => {
         location: ""
       });
     } catch (error) {
-      console.error('Error submitting quote:', error);
       toast.error("Erro ao enviar orçamento. Por favor, tente novamente.");
     } finally {
       setIsSubmitting(false);

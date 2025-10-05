@@ -56,8 +56,8 @@ const Auth = () => {
       return;
     }
 
-    if (password.length < 6) {
-      toast.error("A senha deve ter pelo menos 6 caracteres");
+    if (password.length < 8) {
+      toast.error("A senha deve ter pelo menos 8 caracteres");
       setLoading(false);
       return;
     }
@@ -173,14 +173,15 @@ const Auth = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="signup-password">Senha</Label>
+                  <Label htmlFor="signup-password">Senha (mínimo 8 caracteres)</Label>
                   <Input
                     id="signup-password"
                     type="password"
-                    placeholder="••••••"
+                    placeholder="••••••••"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
+                    minLength={8}
                   />
                 </div>
                 <Button type="submit" className="w-full" disabled={loading}>
