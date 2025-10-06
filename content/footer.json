@@ -1,0 +1,35 @@
+{
+  "copyright": "© 2024 Móveis & Design. Todos os direitos reservados.",
+  "quick_links": [
+    {
+      "text": "Sobre Nós",
+      "url": "#about"
+    },
+    {
+      "text": "Serviços",
+      "url": "#services"
+    },
+    {
+      "text": "Galeria",
+      "url": "#gallery"
+    },
+    {
+      "text": "Contato",
+      "url": "#contact"
+    }
+  ],
+  "social_links": [
+    {
+      "platform": "Instagram",
+      "url": "https://instagram.com"
+    },
+    {
+      "platform": "Facebook",
+      "url": "https://facebook.com"
+    },
+    {
+      "platform": "WhatsApp",
+      "url": "https://wa.me/5511999999999"
+    }
+  ]
+}

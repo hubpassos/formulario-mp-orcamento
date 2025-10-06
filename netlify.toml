@@ -9,3 +9,14 @@
 
 [build.environment]
   NODE_VERSION = "18"
+
+# Netlify Identity (for CMS authentication)
+[context.production]
+  command = "npm run build"
+
+[context.deploy-preview]
+  command = "npm run build"
+
+# Enable Git Gateway for Netlify CMS
+[context.production.environment]
+  NETLIFY_USE_YARN = "false"
