@@ -7,19 +7,19 @@ import lavatorioVogue from "@/assets/lavatorio-vogue.jpg";
 
 const products = [
   {
-    title: "Cadeira Nature",
+    // title: "Cadeira Nature",
     description: "Conforto e ergonomia que elevam cada atendimento.",
     image: cadeiraNature,
     tag: "Cadeiras",
   },
   {
-    title: "Cadeira Lisboa",
+    // title: "Cadeira Lisboa",
     description: "Elegância e funcionalidade para qualquer ambiente.",
     image: cadeiraLisboa,
     tag: "Cadeiras",
   },
   {
-    title: "Lavatório Vogue",
+    // title: "Lavatório Vogue",
     description: "Modernidade e praticidade a cada lavagem.",
     image: lavatorioVogue,
     tag: "Lavatórios",
@@ -41,9 +41,7 @@ const GallerySection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-secondary mb-3">
-            Portfólio
-          </p>
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-secondary mb-3">Portfólio</p>
           <h2
             className="text-3xl md:text-5xl font-bold text-foreground mb-4 text-balance"
             style={{ fontFamily: "'Playfair Display', serif" }}
@@ -66,12 +64,7 @@ const GallerySection = () => {
               transition={{ delay: index * 0.1 }}
             >
               <div className="relative rounded-2xl overflow-hidden shadow-card group">
-                <img
-                  src={product.image}
-                  alt={product.title}
-                  className="w-full h-56 object-cover"
-                  loading="lazy"
-                />
+                <img src={product.image} alt={product.title} className="w-full h-56 object-cover" loading="lazy" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 <div className="absolute top-3 left-3">
                   <span className="px-2.5 py-1 bg-white/20 glass-effect text-white text-xs font-medium rounded-full border border-white/20">
@@ -79,9 +72,7 @@ const GallerySection = () => {
                   </span>
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <h3 className="text-lg font-semibold text-white mb-1">
-                    {product.title}
-                  </h3>
+                  <h3 className="text-lg font-semibold text-white mb-1">{product.title}</h3>
                   <p className="text-white/70 text-sm">{product.description}</p>
                 </div>
               </div>
@@ -119,9 +110,7 @@ const GallerySection = () => {
                   <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
                     {product.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {product.description}
-                  </p>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{product.description}</p>
                 </div>
               </div>
             </motion.div>
@@ -135,9 +124,7 @@ const GallerySection = () => {
           className="text-center"
         >
           <p className="text-sm text-muted-foreground mb-4">
-            Mais de{" "}
-            <span className="font-bold text-primary">10 mil espaços</span>{" "}
-            transformados em todo o Brasil
+            Mais de <span className="font-bold text-primary">10 mil espaços</span> transformados em todo o Brasil
           </p>
           <Button variant="premium" size="lg" onClick={scrollToContact} className="group rounded-xl h-12">
             Solicitar Orçamento
