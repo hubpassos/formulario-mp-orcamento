@@ -73,7 +73,10 @@ const HeroSection = () => {
                 <p className="text-xs text-white/50">Anos de experiência</p>
               </div>
               <div className="w-px h-10 bg-white/15" />
-                            </div>
+              <div>
+                <p className="text-2xl font-bold text-white">5★</p>
+                <p className="text-xs text-white/50">Avaliação</p>
+              </div>
             </div>
           </motion.div>
         </div>
