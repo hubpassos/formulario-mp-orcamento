@@ -1,63 +1,71 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Home, Phone, Calculator } from "lucide-react";
+import { Menu, X, Calculator } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
     setIsOpen(false);
   };
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
     setIsOpen(false);
   };
 
+  const links = [
+    { label: "Início", action: scrollToTop },
+    { label: "Serviços", action: () => scrollToSection("servicos") },
+    { label: "Produtos", action: () => scrollToSection("projetos") },
+    { label: "Contato", action: () => scrollToSection("contato") },
+  ];
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border shadow-soft">
-      <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div 
-            className="font-bold text-xl text-primary cursor-pointer hover:text-purple-light transition-colors"
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-background/80 glass-effect shadow-soft border-b border-border/50"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="flex items-center justify-between h-14 md:h-16">
+          <div
+            className="font-bold text-lg tracking-tight cursor-pointer transition-colors"
+            style={{ fontFamily: "'Playfair Display', serif" }}
             onClick={scrollToTop}
           >
-            Móveis Passos
+            <span className={scrolled ? "text-primary" : "text-white"}>
+              Móveis Passos
+            </span>
           </div>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            <button 
-              onClick={scrollToTop}
-              className="text-foreground hover:text-primary transition-colors flex items-center gap-2"
-            >
-              <Home className="h-4 w-4" />
-              Início
-            </button>
-            <button 
-              onClick={() => scrollToSection('servicos')}
-              className="text-foreground hover:text-primary transition-colors"
-            >
-              Serviços
-            </button>
-            <button 
-              onClick={() => scrollToSection('projetos')}
-              className="text-foreground hover:text-primary transition-colors"
-            >
-              Projetos
-            </button>
-            <button 
-              onClick={() => scrollToSection('contato')}
-              className="text-foreground hover:text-primary transition-colors flex items-center gap-2"
-            >
-              <Phone className="h-4 w-4" />
-              Contato
-            </button>
-            <Button 
-              onClick={() => scrollToSection('orcamento')}
-              variant="premium"
+          {/* Desktop */}
+          <div className="hidden md:flex items-center gap-6">
+            {links.map((link) => (
+              <button
+                key={link.label}
+                onClick={link.action}
+                className={`text-sm font-medium transition-colors hover:text-primary ${
+                  scrolled ? "text-foreground" : "text-white/90"
+                }`}
+              >
+                {link.label}
+              </button>
+            ))}
+            <Button
+              onClick={() => scrollToSection("orcamento")}
+              variant="hero"
               size="sm"
             >
               <Calculator className="h-4 w-4" />
@@ -65,58 +73,61 @@ const Navbar = () => {
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-foreground hover:text-primary transition-colors"
+            className={`md:hidden p-2 rounded-lg transition-colors ${
+              scrolled ? "text-foreground" : "text-white"
+            }`}
           >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
-
-        {/* Mobile Menu */}
-        {isOpen && (
-          <div className="md:hidden py-4 border-t border-border">
-            <div className="flex flex-col space-y-4">
-              <button 
-                onClick={scrollToTop}
-                className="text-left text-foreground hover:text-primary transition-colors flex items-center gap-2 py-2"
-              >
-                <Home className="h-4 w-4" />
-                Início
-              </button>
-              <button 
-                onClick={() => scrollToSection('servicos')}
-                className="text-left text-foreground hover:text-primary transition-colors py-2"
-              >
-                Serviços
-              </button>
-              <button 
-                onClick={() => scrollToSection('projetos')}
-                className="text-left text-foreground hover:text-primary transition-colors py-2"
-              >
-                Projetos
-              </button>
-              <button 
-                onClick={() => scrollToSection('contato')}
-                className="text-left text-foreground hover:text-primary transition-colors flex items-center gap-2 py-2"
-              >
-                <Phone className="h-4 w-4" />
-                Contato
-              </button>
-              <Button 
-                onClick={() => scrollToSection('orcamento')}
-                variant="premium"
-                size="sm"
-                className="w-full"
-              >
-                <Calculator className="h-4 w-4" />
-                Solicitar Orçamento
-              </Button>
-            </div>
-          </div>
-        )}
       </div>
+
+      {/* Mobile menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden bg-background/95 glass-effect border-b border-border/50 overflow-hidden"
+          >
+            <div className="container mx-auto px-4 py-4 flex flex-col gap-1">
+              {links.map((link, i) => (
+                <motion.button
+                  key={link.label}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.05 }}
+                  onClick={link.action}
+                  className="text-left text-foreground hover:text-primary font-medium py-3 px-3 rounded-lg hover:bg-muted/50 transition-all text-sm"
+                >
+                  {link.label}
+                </motion.button>
+              ))}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.2 }}
+                className="pt-2"
+              >
+                <Button
+                  onClick={() => scrollToSection("orcamento")}
+                  variant="hero"
+                  size="sm"
+                  className="w-full"
+                >
+                  <Calculator className="h-4 w-4" />
+                  Solicitar Orçamento
+                </Button>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
