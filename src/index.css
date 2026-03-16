@@ -2,67 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
-    /* Premium beauty salon color palette */
     --background: 270 10% 98%;
     --foreground: 270 15% 15%;
 
-    --card: 270 15% 98%;
+    --card: 0 0% 100%;
     --card-foreground: 270 15% 15%;
 
-    --popover: 270 15% 98%;
+    --popover: 0 0% 100%;
     --popover-foreground: 270 15% 15%;
 
-    /* Primary - Premium purple (#5A3983) */
     --primary: 267 39% 37%;
     --primary-foreground: 270 10% 98%;
 
-    /* Secondary - Light purple (#8964b6) */
     --secondary: 267 36% 55%;
     --secondary-foreground: 270 10% 98%;
 
     --muted: 270 8% 94%;
-    --muted-foreground: 270 5% 55%;
+    --muted-foreground: 270 5% 45%;
 
-    /* Accent - Elegant purple */
     --accent: 267 36% 55%;
     --accent-foreground: 270 10% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 270 8% 88%;
+    --border: 270 8% 90%;
     --input: 270 8% 88%;
     --ring: 267 39% 37%;
 
-    /* Custom beauty salon design tokens */
     --purple-primary: 267 39% 37%;
     --purple-light: 267 36% 55%;
-    --purple-dark: 267 39% 37%;
-    --purple-glow: 267 36% 55%;
-    --luxury-cream: 270 10% 98%;
+    --purple-dark: 267 45% 25%;
+    --purple-glow: 267 50% 65%;
+    --luxury-cream: 40 30% 96%;
     --elegant-gray: 270 5% 90%;
+    --gold-accent: 38 60% 55%;
     
-    /* Premium gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(267 39% 37%), hsl(267 36% 55%));
-    --gradient-premium: linear-gradient(180deg, hsl(267 36% 55% / 0.1), hsl(270 10% 98%));
-    --gradient-elegant: linear-gradient(135deg, hsl(270 10% 98%), hsl(270 8% 94%));
+    --gradient-hero: linear-gradient(135deg, hsl(267 45% 25%), hsl(267 39% 37%), hsl(267 36% 55%));
+    --gradient-premium: linear-gradient(180deg, hsl(267 36% 55% / 0.08), hsl(270 10% 98%));
+    --gradient-elegant: linear-gradient(135deg, hsl(270 10% 98%), hsl(270 8% 96%));
+    --gradient-glass: linear-gradient(135deg, hsl(0 0% 100% / 0.9), hsl(0 0% 100% / 0.6));
     
-    /* Luxury shadows */
-    --shadow-premium: 0 15px 40px -10px hsl(267 39% 37% / 0.25);
-    --shadow-soft: 0 4px 20px -4px hsl(270 15% 15% / 0.08);
-    --shadow-glow: 0 0 50px hsl(267 36% 55% / 0.3);
+    --shadow-premium: 0 20px 60px -15px hsl(267 39% 37% / 0.2);
+    --shadow-soft: 0 4px 20px -4px hsl(270 15% 15% / 0.06);
+    --shadow-glow: 0 0 60px hsl(267 36% 55% / 0.25);
+    --shadow-card: 0 2px 20px -2px hsl(270 15% 15% / 0.08);
     
-    /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -74,66 +67,41 @@ All colors MUST be HSL.
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  @keyframes subtle-glow {
-    0%, 100% {
-      box-shadow: 0 8px 30px hsl(267 36% 55% / 0.2);
-      transform: translateY(0);
-    }
-    50% {
-      box-shadow: 0 12px 40px hsl(267 36% 55% / 0.35);
-      transform: translateY(-2px);
-    }
-  }
-
-  .animate-pulse-glow {
-    animation: subtle-glow 3s ease-in-out infinite;
-  }
-
   .dark {
-    /* Dark mode - Premium purple tones */
     --background: 270 15% 8%;
     --foreground: 270 10% 95%;
-
     --card: 270 20% 12%;
     --card-foreground: 270 10% 95%;
-
     --popover: 270 20% 12%;
     --popover-foreground: 270 10% 95%;
-
     --primary: 265 70% 65%;
     --primary-foreground: 270 15% 8%;
-
     --secondary: 265 25% 18%;
     --secondary-foreground: 270 10% 95%;
-
     --muted: 270 15% 15%;
     --muted-foreground: 270 8% 65%;
-
     --accent: 265 50% 45%;
     --accent-foreground: 270 10% 95%;
-
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 270 15% 20%;
     --input: 270 15% 20%;
     --ring: 265 70% 65%;
-
-    /* Dark mode premium tokens */
     --purple-primary: 265 70% 65%;
     --purple-light: 265 40% 50%;
     --purple-dark: 265 80% 35%;
     --purple-glow: 265 60% 60%;
     --luxury-cream: 270 15% 8%;
     --elegant-gray: 270 10% 20%;
-    
+    --gold-accent: 38 50% 45%;
     --gradient-hero: linear-gradient(135deg, hsl(265 40% 25%), hsl(270 15% 8%));
     --gradient-premium: linear-gradient(180deg, hsl(265 25% 18%), hsl(270 15% 8%));
     --gradient-elegant: linear-gradient(135deg, hsl(270 15% 8%), hsl(270 15% 15%));
-    
+    --gradient-glass: linear-gradient(135deg, hsl(270 20% 12% / 0.9), hsl(270 20% 12% / 0.6));
     --shadow-premium: 0 15px 40px -10px hsl(0 0% 0% / 0.5);
     --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
     --shadow-glow: 0 0 50px hsl(265 60% 60% / 0.2);
+    --shadow-card: 0 2px 20px -2px hsl(0 0% 0% / 0.3);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -151,6 +119,47 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .glass-effect {
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(270 10% 98%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(267 39% 37% / 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(267 39% 37% / 0.5);
 }
